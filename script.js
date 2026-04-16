@@ -13,7 +13,7 @@ fetch("https://api.openweathermap.org/data/2.5/weather?q=" +
                 let result = document.querySelector(".result");
                   result.innerHTML =`<h2 style="margin-top:40px;" class="lokasi">${response.name},${response.sys.country}</h2>
                                    <h5 ><span class="temperatur">${response.main.temp}°C</span>,<span class="temperatur">${response.weather[0].description}</span> <span class="temperatur">${response.weather[0].main}</span></h5>
-                                   <h6 class="suhu">Suhu normal <span>${response.main.temp_min}C</span> Sampai <span>${response.main.temp_max}C</span></h6>
+                                   <h6 class="suhu">Suhu normal <span>${response.main.temp_min}°C</span> Sampai <span>${response.main.temp_max}°C</span></h6>
                                    <h6 class="angin">Kecepatan angin: <span>${response.wind.speed} m/s</span></h6>
                                    <h6 class="koor">Koordinat Geo: ${response.coord.lat}, ${response.coord.lon}</h6>
                                    `
@@ -23,4 +23,4 @@ fetch("https://api.openweathermap.org/data/2.5/weather?q=" +
 
 });
 
-console.log('ucuppp')
+console.log('ucupp')
