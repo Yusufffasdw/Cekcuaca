@@ -1,9 +1,7 @@
 let searchButton = document.querySelector("#button-addon2");
 let inputKeyword = document.querySelector(".input-keyword");
 
-
-searchButton.addEventListener("click",function(){
-
+function getWeatherData(){
 fetch("https://api.openweathermap.org/data/2.5/weather?q=" +
     inputKeyword.value +
     "&appid=92c585825faf0fc478b144e4fa01cbff&units=metric&lang=id"
@@ -16,11 +14,21 @@ fetch("https://api.openweathermap.org/data/2.5/weather?q=" +
                                    <h6 class="suhu">Suhu normal <span>${response.main.temp_min}°C</span> Sampai <span>${response.main.temp_max}°C</span></h6>
                                    <h6 class="angin">Kecepatan angin: <span>${response.wind.speed} m/s</span></h6>
                                    <h6 class="koor">Koordinat Geo: ${response.coord.lat}, ${response.coord.lon}</h6>
-                                   `
-            }
+                                   `;
+                                   inputKeyword.value = null;
+            })
+            .catch((err) => alert("Nama daerah tidak di temukan"));
+            
+}
 
-    );
 
+searchButton.addEventListener("click",function(){
+    getWeatherData();
 });
 
+inputKeyword.addEventListener("keyup",function(event){
+    if(event.key ==="Enter"){
+        getWeatherData();
+    }
+})
 console.log('ucupp')
